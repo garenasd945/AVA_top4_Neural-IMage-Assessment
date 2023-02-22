@@ -23,19 +23,23 @@ conda env create -f env.yml
 ```  
 to install the dependancies.
 
-## Usage
+## Usage 用法
 
 To start training on the AVA dataset, first download the dataset from the link above and decompress which should create a directory named ```images/```. Then download the curated annotation CSVs below
 which already splits the dataset (You can create your own split of course). Then do
 
 ```python
 python main.py --img_path /path/to/images/ --train --train_csv_file /path/to/train_labels.csv --val_csv_file /path/to/val_labels.csv --conv_base_lr 5e-4 --dense_lr 5e-3 --decay --ckpt_path /path/to/ckpts --epochs 100 --early_stoppping_patience 10
+
+python main.py --img_path /data/user21100322/AVA/AVA_dataset/images --train --train_csv_file /data/user21100322/AVA/AVA_dataset/data/train_labels.csv --val_csv_file /data/user21100322/AVA/AVA_dataset/data/val_labels.csv --conv_base_lr 5e-4 --dense_lr 5e-3 --decay --ckpt_path /data/user21100322/AVA/AVA_dataset/train_dir --epochs 100 --early_stoppping_patience 10
+
 ```
 
 For inference, do
 
 ```python
 python -W ignore test.py --model /path/to/your_model --test_csv /path/to/test_labels.csv --test_images /path/to/images --predictions /path/to/save/predictions
+
 ```
 
 See ```predictions/``` for dumped predictions as an example.
@@ -53,7 +57,7 @@ Training is done with early stopping. Here I set ```early_stopping_patience=10``
 
 [Google Drive](https://drive.google.com/file/d/1w9Ig_d6yZqUZSR63kPjZLrEjJ1n845B_/view?usp=sharing)
 
-## Annotation CSV Files
+## Annotation CSV Files  【在这里下载CSV文件，用于训练】
 [Train](https://drive.google.com/file/d/1IBXPXPkCiTz04wWcoReJv4Nk06VsjSkI/view?usp=sharing) [Validation](https://drive.google.com/file/d/1tJfO1zFBoQYzd8kUo5PKeHTcdzBL7115/view?usp=sharing) [Test](https://drive.google.com/file/d/105UGnkglpKuusPhJaPnFSa2JlQV3du9O/view?usp=sharing)
 
 ## Example Results
